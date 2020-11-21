@@ -1,8 +1,8 @@
 node('martin-jnlp') {
     stage('Prepare') {
         echo "1.Prepare Stage"
-        echo "env.BRANCH_NAME ===>${env.BRANCH_NAME}"
         checkout scm
+        echo "env.BRANCH_NAME ===>${env.BRANCH_NAME}"
         script {
             build_tag = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
             if (env.BRANCH_NAME != 'master') {
