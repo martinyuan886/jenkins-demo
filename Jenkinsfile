@@ -1,6 +1,7 @@
 node('martin-jnlp') {
     stage('Prepare') {
         echo "1.Prepare Stage"
+        echo "env.BRANCH_NAME ===>${env.BRANCH_NAME}"
         checkout scm
         script {
             build_tag = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
